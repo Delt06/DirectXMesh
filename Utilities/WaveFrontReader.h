@@ -26,6 +26,18 @@
 #pragma warning(pop)
 
 #include <Windows.h>
+
+// The min/max macros conflict with like-named member functions.
+// Only use std::min and std::max defined in <algorithm>.
+#if defined(min)
+#undef min
+#endif
+
+#if defined(max)
+#undef max
+#endif
+
+
 #else // !WIN32
 #include <wsl/winadapter.h>
 #include <wsl/wrladapter.h>
